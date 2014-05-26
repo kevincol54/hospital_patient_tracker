@@ -1,0 +1,11 @@
+  // -@search_names.each do |search_name|
+  //   %br
+  //   = render 'patients/patient', patient: search_name
+  // %br
+  // %hr
+  // =link_to "Back", hospital_path(@hospital)
+ 
+$("ul.patient").html("");
+<% @patient.each do |patient| %>
+  $("ul.patient").append("<%= escape_javascript(render(partial: 'patients/patient', locals: {patient: patient})) %>");
+<% end %>

@@ -1,0 +1,22 @@
+=link_to "New Doctor", new_doctor_hospital_patient_path(@hospital, @patient)
+=link_to "New Medication", new_hospital_patient_medicine_path(@hospital, @patient)
+%br
+%h1 Patient
+%br
+=@patient.name
+%br
+=@patient.address
+%br
+%h3 Medications
+-@medicine.each do |medicine|
+  %br
+  =medicine.name
+%hr
+%h1 Doctor
+%br
+-@doctor.each do |doctors|
+  %br
+  =doctors.name
+%br
+%hr
+=link_to "Back", hospital_path(@hospital)

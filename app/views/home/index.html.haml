@@ -1,0 +1,10 @@
+%h1 Hospitals
+
+=link_to "New Hospital", new_hospital_path
+%br
+%hr
+-@hospital.each do |hospital|
+  %br
+  =link_to hospital.name, hospital_path(hospital)
+  |
+  =link_to "Edit", edit_hospital_path(hospital)

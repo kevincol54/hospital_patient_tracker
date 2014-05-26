@@ -1,0 +1,22 @@
+== README
+
+== README
+
+
+* Install Ruby V2.1.1
+
+* Git clone this app into new directory
+
+* 'Bundle install' to get all gems installed
+
+* I am using Sequel Pro for all my database needs
+
+* 'rake db:create' to get database created
+
+* 'rake db:migrate' to get database migrated with all the neccessary tables and columns
+
+* Start rails server
+
+* Direct your browser to localhost:3000 
+
+* Have Fun

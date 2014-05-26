@@ -1,0 +1,30 @@
+%li.patients{ class: "#{patient.workflow_state} patient patient_#{patient.id}"}
+  =link_to patient.name, hospital_patient_path(@hospital, patient)
+  (#{patient.workflow_state})
+  %br
+  - if patient.workflow_state == 'waiting'
+    =link_to "See Doctor", "javascript:void(0);", class: "see_doctor change_workflow", patient_url: doctor_hospital_patient_path(@hospital, patient)
+    |
+    =link_to "Send to Xray", "javascript:void(0);", class: "go_to_xray change_workflow", patient_url: xrays_hospital_patient_path(@hospital, patient)
+    |
+    =link_to "Send to Surgery", "javascript:void(0);", class: "go_to_surgery change_workflow", patient_url: surgery_hospital_patient_path(@hospital, patient)
+  - elsif patient.workflow_state == "doctor"
+    =link_to "Send to Xray", "javascript:void(0);", class: "go_to_xray change_workflow", patient_url: xrays_hospital_patient_path(@hospital, patient)
+    |
+    =link_to "Send to Surgery", "javascript:void(0);", class: "go_to_surgery change_workflow", patient_url: surgery_hospital_patient_path(@hospital, patient)
+    |
+    =link_to "Send to Pay Bill", "javascript:void(0);", class: "pay_bill change_workflow", patient_url: paybill_hospital_patient_path(@hospital, patient)
+  - elsif patient.workflow_state == "xray"
+    =link_to "Send to Surgery", "javascript:void(0);", class: "go_to_surgery change_workflow", patient_url: surgery_hospital_patient_path(@hospital, patient)
+    |
+    =link_to "See Doctor", "javascript:void(0);", class: "see_doctor change_workflow", patient_url: doctor_hospital_patient_path(@hospital, patient)
+    |
+    =link_to "Send to Pay Bill", "javascript:void(0);", class: "pay_bill change_workflow", patient_url: paybill_hospital_patient_path(@hospital, patient)
+  - elsif patient.workflow_state == "surgery"
+    =link_to "Send to Xray", "javascript:void(0);", class: "go_to_xray change_workflow", patient_url: xrays_hospital_patient_path(@hospital, patient)
+    |
+    =link_to "See Doctor", "javascript:void(0);", class: "see_doctor change_workflow", patient_url: doctor_hospital_patient_path(@hospital, patient)
+    |
+    =link_to "Send to Pay Bill", "javascript:void(0);", class: "pay_bill change_workflow", patient_url: paybill_hospital_patient_path(@hospital, patient)
+  - elsif patient.workflow_state == "paybill"
+    =link_to "Leave Hospital", "javascript:void(0);", class: "leave change_workflow", patient_url: leaving_hospital_patient_path(@hospital, patient)

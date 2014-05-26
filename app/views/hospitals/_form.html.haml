@@ -1,0 +1,9 @@
+
+%div.hospital
+  =form_for @hospital do |f|
+    = render 'layouts/error_messages', object: @hospital
+    =f.label :name
+    =f.text_field :name
+    =f.label :address
+    =f.text_field :address
+    =f.submit

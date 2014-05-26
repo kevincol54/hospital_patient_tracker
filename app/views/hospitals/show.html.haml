@@ -1,0 +1,48 @@
+%h1 #{@hospital.name}
+%hr
+=link_to "New Patient", new_hospital_patient_path(@hospital)
+=link_to "New Doctor", doctor_hospital_path(@hospital)
+%hr
+%br
+%h1 Patients
+%br
+
+.searchfunction
+  =render 'patients/search'
+
+%ul.patient
+  -@patient.each_slice(10) do |patient, patient1, patient2, patient3, patient4, patient5, patient6, patient7, patient8, patient9|
+
+    = render 'patients/patient', patient: patient if patient
+    = render 'patients/patient', patient: patient1 if patient1
+    = render 'patients/patient', patient: patient2 if patient2
+    = render 'patients/patient', patient: patient3 if patient3
+    = render 'patients/patient', patient: patient4 if patient4
+    = render 'patients/patient', patient: patient5 if patient5
+    = render 'patients/patient', patient: patient6 if patient6
+    = render 'patients/patient', patient: patient7 if patient7
+    = render 'patients/patient', patient: patient8 if patient8
+    = render 'patients/patient', patient: patient9 if patient9
+
+%ul
+  .pagelink
+    Page:
+    %a{href: "javascript:void(0)"} 1
+    %a{href: "javascript:void(0)"} 2
+    %a{href: "javascript:void(0)"} 3
+    %a{href: "javascript:void(0)"} 4
+  %br
+
+%hr
+%h1 Doctors
+-@doctors.each do |doctors|
+  %br
+  =doctors.name
+%hr
+%br
+=link_to "Back To Hospital Page", root_path
+
+%h1 Past Patients
+-@patient_leaving.each do |patient|
+  %br
+  =link_to patient.name, hospital_patient_path(@hospital, patient)
