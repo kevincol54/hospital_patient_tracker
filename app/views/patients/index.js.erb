@@ -1,4 +1,4 @@
 $("ul.patient").html("");
-<% @patients.each do |patient| %>
+<% @patient.each do |patient| %>
   $("ul.patient").append("<%= escape_javascript(render(partial: 'patients/patient', locals: {patient: patient})) %>");
 <% end %>

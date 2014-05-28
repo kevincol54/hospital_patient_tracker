@@ -2,6 +2,6 @@
 /   =text_field_tag "q", "", placeholder: "Search..."
 /   = submit_tag "search"
 
-= form_tag search_names_hospital_patients_path(@hospital, @patient), method: :get, remote: true
+= form_tag search_names_hospital_patients_path(@hospital), method: :get, remote: true
 =text_field_tag "q", "", placeholder: "Search..."
 = submit_tag "search"

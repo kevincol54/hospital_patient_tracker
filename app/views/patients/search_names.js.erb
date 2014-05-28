@@ -4,7 +4,7 @@
   // %br
   // %hr
   // =link_to "Back", hospital_path(@hospital)
- 
+ console.log("yay")
 $("ul.patient").html("");
 <% @patient.each do |patient| %>
   $("ul.patient").append("<%= escape_javascript(render(partial: 'patients/patient', locals: {patient: patient})) %>");

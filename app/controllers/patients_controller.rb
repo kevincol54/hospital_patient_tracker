@@ -105,10 +105,9 @@ class PatientsController < ApplicationController
   end
 
 
-  # def search_names
-  #   @search_names = Patient.search_names params[:q]
-  #   end
-  # end
+  def search_names
+    @patient = Patient.search_names params[:q]
+  end
 
   def discharge
   end
