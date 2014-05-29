@@ -14,7 +14,7 @@ class HospitalsController < ApplicationController
     success = @hospital.save
     if success == true
       flash[:notice] = "You entered an acceptable name"
-    redirect_to root_path
+      redirect_to root_path
     else
       flash[:error] = "you need to enter an acceptable name"
       render :new
@@ -28,15 +28,9 @@ class HospitalsController < ApplicationController
     @patient_leaving = @hospital.patients.where(workflow_state: "leaving")
   end
 
-  def edit
-  end
-
   def update
     @hospital.update_attributes hospital_params
     redirect_to root_path
-  end
-
-  def destroy
   end
 
   def doctor
@@ -58,6 +52,6 @@ class HospitalsController < ApplicationController
   end
   
   def doctor_params
-      params.require(:doctor).permit(:name)
-    end
+    params.require(:doctor).permit(:name)
+  end
 end

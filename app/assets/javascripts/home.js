@@ -57,8 +57,6 @@ var getting_shit_done = function() {
     patient_validation()
   
 
-
-
   $(document.body).on("click", "a.change_workflow", function(){
     $.ajax({
       type: "PATCH",
@@ -66,14 +64,6 @@ var getting_shit_done = function() {
       dataType: "script"
     })
   });
-
-  // $(document.body).on("click", ".search", function(){
-  //   $.ajax({
-  //     type: "GET",
-  //     url: $(this).attr("search_url"),
-  //     dataType: "script"
-  //   })
-  // });
 
   pageLength = 5;
 
@@ -90,9 +80,8 @@ var getting_shit_done = function() {
   $(".pagelink a").click(function(){
     displayPage(parseInt($(this).text()))
   });
-
-
 }
+
 $(document).ready(getting_shit_done);
 $(document).on("page:load", getting_shit_done);
 

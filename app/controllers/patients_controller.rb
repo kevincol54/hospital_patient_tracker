@@ -43,9 +43,6 @@ class PatientsController < ApplicationController
     @medicine = @patient.medicines
   end
 
-  def edit
-  end
-
   def update
     @patient.update_attributes patient_params
     redirect_to hospital_path(@hospital)
@@ -56,7 +53,6 @@ class PatientsController < ApplicationController
 
   def new_doctor
     @doctor = @patient.doctors.new
-    redirect_to doctor_hospital_path(@hospital)
   end
 
   def add_doctor
@@ -103,7 +99,6 @@ class PatientsController < ApplicationController
       format.js
     end
   end
-
 
   def search_names
     @patient = Patient.search_names params[:q]

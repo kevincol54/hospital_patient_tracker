@@ -1,7 +1,3 @@
-/ = form_tag "javascript:void(0)", class: "search", search_url: search_names_hospital_patients_path(@hospital) do
-/   =text_field_tag "q", "", placeholder: "Search..."
-/   = submit_tag "search"
-
 = form_tag search_names_hospital_patients_path(@hospital), method: :get, remote: true
 =text_field_tag "q", "", placeholder: "Search..."
 = submit_tag "search"
